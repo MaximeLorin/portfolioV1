@@ -1,13 +1,19 @@
 <template>
   <header class="header">
-    <img src="../assets/Fichier1.svg" alt="logo" class="logo" />
+    <img src="../assets/logo2.svg" alt="logo" class="logo" />
     <div class="menu">
-      <router-link to="#whoAmI" class="menu__txt">Qui suis-je ?</router-link>
-      <router-link to="#qualifications" class="menu__txt"
-        >Compétences</router-link
+      <router-link to="#whoAmI" class="underline"
+        ><h2 class="menu__txt">Qui suis-je ?</h2></router-link
       >
-      <router-link to="#projects" class="menu__txt">Projets</router-link>
-      <router-link to="" class="menu__txt">Contact</router-link>
+      <router-link to="#qualifications" class="underline"
+        ><h2 class="menu__txt">Compétences</h2></router-link
+      >
+      <router-link to="#projects" class="underline"
+        ><h2 class="menu__txt">Projets</h2></router-link
+      >
+      <router-link to="" class="underline"
+        ><h2 class="menu__txt">Contact</h2></router-link
+      >
     </div>
   </header>
 </template>
@@ -24,22 +30,46 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import "./public/variables.scss";
-
+.logo {
+  margin-top: 15px;
+  max-height: 65px;
+}
 .header {
   display: flex;
   justify-content: space-between;
-  padding-left: 12.5%;
-  padding-right: 12.5%;
-  height: 10vh;
-  background-color: $tertiary-color;
+  padding-left: 15%;
+  padding-right: 15%;
+  height: 12vh;
+  background-color: $secondairy-color;
 }
 .menu {
-  width: 50%;
+  width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   &__txt {
+    position: relative;
+    font-size: 1.15rem;
+    font-weight: normal;
     color: $primary-color;
   }
+  &__txt:hover {
+    color: $hover-color;
+    transition: all 0.25s ease-in-out;
+  }
+}
+.menu__txt::after {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: $tertiary-color;
+  left: 0%;
+  bottom: -5px;
+  transition: all 0.25s ease-in-out;
+}
+.underline:hover .menu__txt::after {
+  width: 70%;
+  left: 0;
 }
 </style>
