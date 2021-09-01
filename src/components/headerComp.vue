@@ -43,14 +43,14 @@ export default {
   background-color: $secondairy-color;
 }
 .menu {
-  width: 40%;
+  width: 500px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   &__txt {
     position: relative;
-    font-size: 1.15rem;
-    font-weight: normal;
+    font-size: $regular-font;
+    font-weight: 100;
     color: $primary-color;
   }
   &__txt:hover {

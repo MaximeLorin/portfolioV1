@@ -10,9 +10,9 @@
       />
     </div>
     <div class="textBox">
-      <h3 class="textBox__title">Blalalalalalalalalalalala</h3>
+      <h3 class="textBox__title">Maxime Lorin Développeur web</h3>
       <p class="textBox__content">
-        je usissiois dsqudiodqsidqdsqpsdhqihdoshqdqnq sihdqso hdqs
+        Développeur en quête de nouveaux défis et toujours prêt à apprendre !
       </p>
     </div>
   </div>
@@ -34,20 +34,20 @@ export default {
 .presentation {
   height: 88vh;
   display: flex;
+  flex-direction: column;
   padding-left: 15%;
   padding-right: 15%;
 
   background-color: $secondairy-color;
 }
 .visualBox {
-  width: 50%;
+  height: 50%;
   display: flex;
   justify-content: center;
-  padding-top: 12vh;
+  padding-top: 7vh;
   &__imgs--1 {
-    max-height: 350px;
-    max-width: 350px;
-    position: absolute;
+    max-height: 400px;
+    max-width: 400px;
   }
 }
 .visualBox__imgs--1:hover {
@@ -59,7 +59,16 @@ export default {
 .textBox {
   display: flex;
   flex-direction: column;
-  padding-top: 30vh;
+  align-items: center;
+
   color: $primary-color;
+  &__title {
+    font-size: $title-font;
+    margin-bottom: 10px;
+  }
+  &__content {
+    max-width: 380px;
+    font-size: $regular-font;
+  }
 }
 </style>
