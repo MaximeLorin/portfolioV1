@@ -3,12 +3,9 @@
     <div class="blockTxt">
       <h3 class="blockTxt__title">Qui suis-je ?</h3>
       <p class="blockTxt__txt">
-        Après plusieurs années de travail alimentaire pendant lesquels j'ai
-        beaucoup appris du monde du travail et surtout du travail en équipe,
-        j'ai décidé de suivre une formation dans un domaine qui me passionne
-        depuis toujours. <br />C'est pourquoi j'ai fait la formation développeur
-        web d'OpenClasserooms afin de consolidé des bases et de découvrir plus
-        en profondeur ce métier passionnant !
+        Depuis toujours, comprendre comment les choses sont faites me fascine,
+        d’autant plus dans le domaine de l’informatique. C’est pourquoi j’ai
+        décidé d’allier ma curiosité à ma passion pour en faire mon métier.
       </p>
     </div>
   </div>

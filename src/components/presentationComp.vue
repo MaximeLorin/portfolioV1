@@ -10,7 +10,7 @@
       />
     </div>
     <div class="textBox">
-      <h3 class="textBox__title">Maxime Lorin Développeur web</h3>
+      <h3 class="textBox__title">Maxime Lorin • Développeur Web</h3>
       <p class="textBox__content">
         Développeur en quête de nouveaux défis et toujours prêt à apprendre !
       </p>
