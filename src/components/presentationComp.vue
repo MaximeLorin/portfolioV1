@@ -31,6 +31,33 @@ export default {
 <style scoped lang="scss">
 @import "./public/variables.scss";
 
+@keyframes blobbyBlob {
+  0% {
+    transform: scaleX(1) scaleY(1);
+  }
+  10% {
+    transform: scaleX(0.9) scaleY(0.95);
+  }
+  20% {
+    transform: scaleX(0.7) scaleY(0.65);
+  }
+  60% {
+    transform: scaleX(0.65) scaleY(0.6);
+  }
+  70% {
+    transform: scaleX(1.1) scaleY(1.15);
+  }
+  80% {
+    transform: scaleX(0.8) scaleY(0.85);
+  }
+  90% {
+    transform: scaleX(1.15) scaleY(1.19);
+  }
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+
 .presentation {
   height: 88vh;
   display: flex;
@@ -52,9 +79,11 @@ export default {
 }
 .visualBox__imgs--1:hover {
   cursor: pointer;
-  transform: rotateZ(10deg);
 
-  transition: all 0.2s ease-in-out;
+  animation-name: blobbyBlob;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
 }
 .textBox {
   display: flex;

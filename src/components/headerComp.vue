@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img src="../assets/logo2.svg" alt="logo" class="logo" />
+    <img src="../assets/logo4.svg" alt="logo" class="logo" />
     <div class="menu">
       <router-link to="#whoAmI" class="underline"
         ><h2 class="menu__txt">Qui suis-je ?</h2></router-link
@@ -63,7 +63,7 @@ export default {
   content: "";
   width: 0%;
   height: 2px;
-  background-color: $tertiary-color;
+  background-color: $line-color;
   left: 0%;
   bottom: -5px;
   transition: all 0.25s ease-in-out;

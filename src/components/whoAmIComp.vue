@@ -30,12 +30,12 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $tertiary-color;
+  background-color: $primary-color;
   padding-left: 15%;
   padding-right: 15%;
 }
 .blockTxt {
-  color: $primary-color;
+  color: $secondairy-color;
   &__title {
     margin-bottom: 70px;
     font-size: $title-font;
@@ -46,7 +46,7 @@ export default {
   }
 }
 .blockTxt:hover {
-  color: $hover-color;
+  color: $tertiary-color;
   transition: all 0.25s ease-in-out;
 }
 </style>
