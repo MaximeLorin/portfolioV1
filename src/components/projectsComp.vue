@@ -1,8 +1,12 @@
 <template>
   <div class="projects" id="projects">
-    <h3 class="projectsTitle">Projets</h3>
+    <h3 class="projectsTitle">Quelques projets</h3>
     <div class="projectsBox">
-      <div class="projectBox">
+      <a
+        href="https://maximelorin.github.io/MaximeLorin_3_20022021/"
+        target="_blank"
+        class="projectBox"
+      >
         <img
           src="../assets/ohMyFoodVignette.png"
           alt="Vignette OhMyFood"
@@ -13,31 +17,46 @@
             Site créé en utilisant html et Sass pour s'entrainer aux animations
           </p>
         </div>
-      </div>
-      <div class="projectBox">
+      </a>
+      <a
+        href="https://groupomania.maximelorin.com/?#/login"
+        target="_blank"
+        class="projectBox"
+      >
         <img
-          src="../assets/ohMyFoodVignette.png"
-          alt="Vignette OhMyFood"
+          src="../assets/groupomaniaVignette.png"
+          alt="Vignette groupomania"
           class="projectBox__img"
         />
         <div class="shadowBox">
           <p class="shadowBox__txt">
-            Site créé en utilisant html et Sass pour s'entrainer aux animations
+            Réseau social d'entreprise créé avec Vue.js et Express/MySql
           </p>
         </div>
-      </div>
-      <div class="projectBox">
+      </a>
+      <a href="https://mcmicmax.itch.io/" target="_blank" class="projectBox">
         <img
-          src="../assets/ohMyFoodVignette.png"
-          alt="Vignette OhMyFood"
+          src="../assets/itchioVignette.png"
+          alt="Vignette Itch.io"
           class="projectBox__img"
         />
         <div class="shadowBox">
           <p class="shadowBox__txt">
-            Site créé en utilisant html et Sass pour s'entrainer aux animations
+            Quelques jeux créé en utilisant Unity 3D et C#
           </p>
         </div>
-      </div>
+      </a>
+    </div>
+    <div class="projectsButton">
+      <a
+        class="projectsGit"
+        href="https://github.com/MaximeLorin"
+        target="_blank"
+        ><font-awesome-icon
+          :icon="['fab', 'github']"
+          class="projectsGit__icon"
+        />Page GitHub</a
+      >
     </div>
   </div>
 </template>
@@ -78,12 +97,12 @@ export default {
   height: 260px;
   border-radius: 25px;
   overflow: hidden;
-  background-color: red;
   position: relative;
 
   &__img {
     width: 100%;
     height: 260px;
+    border-radius: 25px;
     object-fit: cover;
     &:hover {
       cursor: pointer;
@@ -100,7 +119,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #72a1b452;
+
+  background-color: transparent;
   color: transparent;
   &__txt {
     width: 70%;
@@ -108,9 +128,36 @@ export default {
   }
   &:hover {
     cursor: pointer;
+
     transition: all 0.2s ease-in-out;
-    background-color: $hover-color;
+    background-color: #72a1b4da;
     color: $secondairy-color;
+  }
+}
+.projectsButton {
+  width: 100%;
+  height: 30%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.projectsGit {
+  width: 170px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $regular-font;
+  color: $secondairy-color;
+  border: solid 2px $secondairy-color;
+  &__icon {
+    margin-right: 5px;
+  }
+  &:hover {
+    color: $primary-color;
+    background-color: $secondairy-color;
+    transition: all 0.2s ease-in-out;
   }
 }
 </style>

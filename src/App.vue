@@ -56,4 +56,23 @@ input:focus {
     }
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #cfcbba;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #11717c;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0c525a;
+}
 </style>
