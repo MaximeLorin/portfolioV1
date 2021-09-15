@@ -13,3 +13,11 @@ $line-color: #99b8a9;
 $title-font: 2rem;
 $subtitle-font: 1.35rem;
 $regular-font: 1.25rem;
+
+$media-mobile: 680px;
+
+@mixin screen-mobile {
+  @media screen and (max-width: $media-mobile) {
+    @content;
+  }
+}

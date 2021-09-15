@@ -95,14 +95,14 @@ export default {
 .projectBox {
   width: 30%;
   height: 260px;
-  border-radius: 25px;
+  border-radius: 15px;
   overflow: hidden;
   position: relative;
 
   &__img {
     width: 100%;
     height: 260px;
-    border-radius: 25px;
+    border-radius: 15px;
     object-fit: cover;
     &:hover {
       cursor: pointer;
@@ -130,7 +130,7 @@ export default {
     cursor: pointer;
 
     transition: all 0.2s ease-in-out;
-    background-color: #72a1b4da;
+    background-color: #72a1b4e5;
     color: $secondairy-color;
   }
 }
@@ -158,6 +158,38 @@ export default {
     color: $primary-color;
     background-color: $secondairy-color;
     transition: all 0.2s ease-in-out;
+  }
+}
+@include screen-mobile {
+  .projectsBox {
+    display: flex;
+    height: 65%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .projectBox {
+    width: 85%;
+    height: 30%;
+
+    &__img {
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+  .shadowBox {
+    width: 100%;
+    height: 100%;
+
+    &__txt {
+      width: 90%;
+    }
   }
 }
 </style>

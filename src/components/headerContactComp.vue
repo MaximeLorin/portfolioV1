@@ -4,18 +4,9 @@
       <img src="../assets/logo4.svg" alt="logo" class="logo"
     /></router-link>
     <div class="menu">
-      <router-link to="#whoAmI" class="underline"
-        ><h2 class="menu__txt">Qui suis-je ?</h2></router-link
-      >
-      <router-link to="#qualifications" class="underline"
-        ><h2 class="menu__txt">Compétences</h2></router-link
-      >
-      <router-link to="#projects" class="underline"
-        ><h2 class="menu__txt">Projets</h2></router-link
-      >
-      <!-- <router-link to="About" class="underline"
+      <router-link to="About" class="underline"
         ><h2 class="menu__txt">Contact</h2></router-link
-      > -->
+      >
     </div>
   </header>
 </template>
@@ -35,7 +26,6 @@ export default {
 .logo {
   margin-top: 15px;
   min-height: 65px;
-  max-height: 65px;
 }
 .header {
   display: flex;
@@ -74,18 +64,5 @@ export default {
 .underline:hover .menu__txt::after {
   width: 70%;
   left: 0;
-}
-@include screen-mobile {
-  .header {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-  .menu {
-    width: 120px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-  }
 }
 </style>

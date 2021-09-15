@@ -1,4 +1,7 @@
 <template>
+  <!-- <div class="returnButton">
+    <font-awesome-icon :icon="['fas', 'arrow-up']" class="returnButton__icon" />
+  </div> -->
   <router-view />
 </template>
 
@@ -74,5 +77,24 @@ input:focus {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #0c525a;
+}
+
+.returnButton {
+  position: fixed;
+  bottom: 5vh;
+  right: 2vw;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.342);
+  &__icon {
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.705);
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }
 </style>

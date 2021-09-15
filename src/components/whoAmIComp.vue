@@ -3,9 +3,10 @@
     <div class="blockTxt">
       <h3 class="blockTxt__title">Qui suis-je ?</h3>
       <p class="blockTxt__txt">
-        Depuis toujours, comprendre comment les choses sont faites me fascine,
-        d’autant plus dans le domaine de l’informatique. C’est pourquoi j’ai
-        décidé d’allier ma curiosité à ma passion pour en faire mon métier.
+        Je m'appelle Maxime Lorin, j'ai 28 ans et j'habite à Rennes. Depuis
+        toujours, comprendre comment les choses sont faites me fascine, d’autant
+        plus dans le domaine de l’informatique. C’est pourquoi j’ai décidé
+        d’allier ma curiosité à ma passion pour en faire mon métier.
       </p>
     </div>
   </div>
@@ -45,8 +46,8 @@ export default {
     max-width: 550px;
   }
 }
-.blockTxt:hover {
-  color: $tertiary-color;
-  transition: all 0.25s ease-in-out;
-}
+// .blockTxt:hover {
+//   color: $tertiary-color;
+//   transition: all 0.25s ease-in-out;
+// }
 </style>

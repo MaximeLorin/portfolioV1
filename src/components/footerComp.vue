@@ -33,7 +33,7 @@ export default {
 @import "./public/variables.scss";
 
 .footer {
-  height: 20vh;
+  height: 15vh;
   background-color: $secondairy-color;
   color: $primary-color;
   display: flex;
@@ -45,7 +45,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-top: 4vh;
+  margin-top: 2vh;
   width: 200px;
   &__linkedin {
     border: solid 1px;
@@ -82,6 +82,6 @@ export default {
   }
 }
 .footerCredit {
-  margin-top: 7vh;
+  margin-top: 4vh;
 }
 </style>

@@ -85,8 +85,8 @@ export default {
 }
 .blockQualif {
   height: 480px;
-  width: 280px;
-  border-radius: 25px;
+  width: 25%;
+  border-radius: 15px;
   border: solid 2px $primary-color;
   &__title {
     margin-top: 25px;
@@ -99,6 +99,38 @@ export default {
   &__txt {
     margin-top: 5px;
     font-size: $regular-font;
+  }
+}
+@include screen-mobile {
+  .qualifications {
+    height: 200vh;
+    justify-content: start;
+    &__title {
+      font-size: $title-font;
+      margin-top: 10%;
+      margin-bottom: 10%;
+    }
+  }
+  .containerQualif {
+    height: 90%;
+    flex-direction: column;
+  }
+  .blockQualif {
+    height: 33%;
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    &__title {
+      margin-top: 5px;
+    }
+    &__subtitle {
+      margin-top: 2px;
+    }
+    &__txt {
+      margin-top: 2px;
+    }
   }
 }
 </style>

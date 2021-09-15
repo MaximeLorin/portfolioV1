@@ -4,7 +4,7 @@
       <div class="visualBox__imgs"></div>
 
       <img
-        src="../assets/blob.svg"
+        src="../assets/enteteTemp2.png"
         alt="blob shape"
         class="visualBox__imgs--1"
       />
@@ -71,7 +71,7 @@ export default {
   height: 50%;
   display: flex;
   justify-content: center;
-  padding-top: 7vh;
+  padding-top: 9vh;
   &__imgs--1 {
     max-height: 400px;
     max-width: 400px;
@@ -89,7 +89,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  margin-top: 15px;
   color: $primary-color;
   &__title {
     font-size: $title-font;
@@ -98,6 +98,18 @@ export default {
   &__content {
     max-width: 380px;
     font-size: $regular-font;
+  }
+}
+@include screen-mobile {
+  .visualBox {
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    padding-top: 4vh;
+    &__imgs--1 {
+      max-height: 400px;
+      max-width: 400px;
+    }
   }
 }
 </style>
