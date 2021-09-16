@@ -112,4 +112,18 @@ export default {
     }
   }
 }
+@include screen-mobileV {
+  .textBox {
+    margin-top: 10px;
+
+    &__title {
+      font-size: $title-font;
+      margin-bottom: 5px;
+    }
+    &__content {
+      max-width: 380px;
+      font-size: $regular-font;
+    }
+  }
+}
 </style>

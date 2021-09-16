@@ -133,4 +133,27 @@ export default {
     }
   }
 }
+@include screen-mobileV {
+  .qualifications {
+    &__title {
+      font-size: $title-font;
+      margin-bottom: 7px;
+    }
+  }
+  .blockQualif {
+    height: 283px;
+    &__title {
+      margin-top: 5px;
+      font-size: 1.1rem;
+    }
+    &__subtitle {
+      margin-top: 3px;
+      font-size: 1.1rem;
+    }
+    &__txt {
+      margin-top: 2px;
+      font-size: 1rem;
+    }
+  }
+}
 </style>

@@ -4,6 +4,7 @@
       <img src="../assets/logo4.svg" alt="logo" class="logo"
     /></router-link>
     <div class="menu">
+      <div class="menu__button"><div class="menu__button--burger"></div></div>
       <router-link to="#whoAmI" class="underline"
         ><h2 class="menu__txt">Qui suis-je ?</h2></router-link
       >
@@ -50,6 +51,45 @@ export default {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  &__button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: solid;
+    transition: all 0.25s ease-in-out;
+    &--burger {
+      width: 40px;
+      height: 6px;
+      border-radius: 5px;
+      background-color: black;
+
+      transition: all 0.25s ease-in-out;
+
+      &::before {
+        transform: translateY(-15px);
+        content: "";
+        left: 5px;
+        position: absolute;
+        width: 40px;
+        height: 6px;
+        border-radius: 5px;
+        background-color: black;
+      }
+      &::after {
+        transform: translateY(15px);
+        content: "";
+        position: absolute;
+        right: 5px;
+        width: 40px;
+        height: 6px;
+        border-radius: 5px;
+        background-color: black;
+      }
+    }
+  }
   &__txt {
     position: relative;
     font-size: $regular-font;

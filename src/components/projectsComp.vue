@@ -175,12 +175,6 @@ export default {
     &__img {
       width: 100%;
       height: 100%;
-
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.1);
-        transition: all 0.2s ease-in-out;
-      }
     }
   }
   .shadowBox {
@@ -189,6 +183,29 @@ export default {
 
     &__txt {
       width: 90%;
+    }
+  }
+}
+@include screen-mobileV {
+  .projects {
+    height: 100vh;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  .projectsTitle {
+    margin-top: 8vh;
+    margin-bottom: 2%;
+  }
+  .projectBox {
+    height: 100%;
+
+    &__img {
+      width: 100%;
+      height: 100%;
     }
   }
 }

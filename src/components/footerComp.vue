@@ -84,4 +84,28 @@ export default {
 .footerCredit {
   margin-top: 4vh;
 }
+@include screen-mobileV {
+  .footer {
+    height: 20vh;
+  }
+  .footerIcons {
+    font-size: 1.5rem;
+    margin-top: 1vh;
+    &__linkedin {
+      width: 33px;
+      height: 33px;
+    }
+    &__github {
+      width: 33px;
+      height: 33px;
+    }
+    &__itchio {
+      width: 33px;
+      height: 33px;
+    }
+  }
+  .footerCredit {
+    margin-top: 1vh;
+  }
+}
 </style>
