@@ -15,6 +15,7 @@ $subtitle-font: 1.35rem;
 $regular-font: 1.25rem;
 
 $media-mobile: 680px;
+$media-mobileV: 600px;
 
 @mixin screen-mobile {
   @media screen and (max-width: $media-mobile) {
@@ -23,7 +24,7 @@ $media-mobile: 680px;
 }
 
 @mixin screen-mobileV {
-  @media screen and (max-height: $media-mobile) {
+  @media screen and (max-height: $media-mobileV) {
     @content;
   }
 }
