@@ -25,7 +25,6 @@ export default {
   components: {
     presentationComp,
     headerComp,
-
     whoAmIComp,
     projectsComp,
     qualificationsComp,
@@ -36,6 +35,15 @@ export default {
     return {
       navOpen: false,
     };
+  },
+  methods: {
+    isMobile() {
+      this.navOpen = window.innerWidth >= 680;
+    },
+  },
+  created() {
+    this.isMobile();
+    window.addEventListener("resize", this.isMobile);
   },
 };
 </script>

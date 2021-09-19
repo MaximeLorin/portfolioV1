@@ -7,12 +7,19 @@
         ><font-awesome-icon
           :icon="['fab', 'linkedin-in']"
           class="projectsGit__icon"
+          aria-label="lien vers linkedin"
       /></a>
       <a href="https://github.com/MaximeLorin" class="footerIcons__github"
-        ><font-awesome-icon :icon="['fab', 'github']" class="projectsGit__icon"
+        ><font-awesome-icon
+          :icon="['fab', 'github']"
+          class="projectsGit__icon"
+          aria-label="lien vers github"
       /></a>
       <a href="https://mcmicmax.itch.io/" class="footerIcons__itchio"
-        ><font-awesome-icon :icon="['fab', 'itch-io']" class="projectsGit__icon"
+        ><font-awesome-icon
+          :icon="['fab', 'itch-io']"
+          class="projectsGit__icon"
+          aria-label="lien vers itch.io"
       /></a>
     </div>
     <p class="footerCredit">©2021 Maxime Lorin</p>

@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <router-link to="/">
-      <img src="../assets/logo4.svg" alt="logo" class="logo"
+      <img src="../assets/logo4.svg" alt="logo du site" class="logo"
     /></router-link>
     <transition name="show">
       <div class="menu" v-if="open">
