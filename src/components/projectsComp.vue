@@ -42,7 +42,7 @@
         />
         <div class="shadowBox">
           <p class="shadowBox__txt">
-            Quelques jeux créé en utilisant Unity 3D et C#
+            Quelques jeux créés en utilisant Unity 3D et C#
           </p>
         </div>
       </a>
@@ -79,6 +79,7 @@ export default {
   background-color: $primary-color;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-left: 15%;
   padding-right: 15%;
 }
@@ -94,14 +95,14 @@ export default {
 }
 .projectBox {
   width: 30%;
-  height: 260px;
+  height: 100%;
   border-radius: 15px;
   overflow: hidden;
   position: relative;
 
   &__img {
     width: 100%;
-    height: 260px;
+    height: 100%;
     border-radius: 15px;
     object-fit: cover;
     &:hover {
@@ -115,7 +116,7 @@ export default {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 260px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

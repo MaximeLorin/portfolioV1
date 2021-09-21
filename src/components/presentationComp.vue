@@ -1,13 +1,12 @@
 <template>
   <div class="presentation" id="presentation">
     <div class="visualBox">
-      <div class="visualBox__imgs"></div>
-
       <img
         src="../assets/enteteTemp2.png"
-        alt="blob shape"
+        alt="Photo Maxime Lorin"
         class="visualBox__imgs--1"
       />
+      <div class="visualBox__imgs"></div>
     </div>
     <div class="textBox">
       <h3 class="textBox__title">Maxime Lorin • Développeur Web</h3>
@@ -69,12 +68,17 @@ export default {
 }
 .visualBox {
   height: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: 9vh;
   &__imgs--1 {
+    height: 100%;
+    width: auto;
     max-height: 400px;
-    max-width: 400px;
+    max-width: 346px;
   }
 }
 .visualBox__imgs--1:hover {
@@ -106,10 +110,6 @@ export default {
     display: flex;
     justify-content: center;
     padding-top: 4vh;
-    &__imgs--1 {
-      max-height: 400px;
-      max-width: 400px;
-    }
   }
 }
 @include screen-mobileV {

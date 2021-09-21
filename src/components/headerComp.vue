@@ -37,8 +37,8 @@ export default {
 @import "./public/variables.scss";
 .logo {
   margin-top: 15px;
-  min-height: 65px;
-  max-height: 65px;
+  width: 65px;
+  height: 65px;
 }
 .header {
   display: flex;
