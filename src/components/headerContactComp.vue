@@ -4,8 +4,8 @@
       <img src="../assets/logo4.svg" alt="logo" class="logo"
     /></router-link>
     <div class="menu">
-      <router-link to="About" class="underline"
-        ><h2 class="menu__txt">Contact</h2></router-link
+      <router-link to="/" class="underline"
+        ><h2 class="menu__txt">Retour à l'acceuil</h2></router-link
       >
     </div>
   </header>
