@@ -65,4 +65,13 @@ export default {
   width: 70%;
   left: 0;
 }
+@include screen-mobile {
+  .menu {
+    justify-content: flex-end;
+  }
+  .header {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
 </style>

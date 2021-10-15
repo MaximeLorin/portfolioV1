@@ -2,7 +2,7 @@
   <div class="menuButton" @click="$emit('openNav')">
     <div
       class="menuButton__burger"
-      :class="{ animIn: isActive, animOut: !isActive }"
+      :class="{ animOut: !isActive }"
       @click="isActive = !isActive"
     >
       <div class="menuButton__burger--center"></div>

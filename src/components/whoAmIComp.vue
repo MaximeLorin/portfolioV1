@@ -31,7 +31,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $primary-color;
+  background-color: $hover-color;
   padding-left: 15%;
   padding-right: 15%;
 }

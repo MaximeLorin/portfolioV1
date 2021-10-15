@@ -42,7 +42,7 @@ export default {
 .footer {
   height: 15vh;
   background-color: $secondairy-color;
-  color: $primary-color;
+  color: $hover-color;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -111,6 +111,11 @@ export default {
       height: 33px;
     }
   }
+  .footerCredit {
+    margin-top: 1vh;
+  }
+}
+@include screen-mobile {
   .footerCredit {
     margin-top: 1vh;
   }

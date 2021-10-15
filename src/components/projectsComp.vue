@@ -76,7 +76,7 @@ export default {
 
 .projects {
   height: 100vh;
-  background-color: $primary-color;
+  background-color: $hover-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -189,7 +189,7 @@ export default {
 }
 @include screen-mobileV {
   .projects {
-    height: 100vh;
+    height: 200vh;
     background-color: $primary-color;
     display: flex;
     flex-direction: column;

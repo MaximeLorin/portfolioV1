@@ -14,7 +14,7 @@
         <router-link to="#projects" class="underline"
           ><h2 class="menu__txt">Projets</h2></router-link
         >
-        <router-link to="About" class="underline"
+        <router-link to="Contact" class="underline"
           ><h2 class="menu__txt">Contact</h2></router-link
         >
       </div></transition

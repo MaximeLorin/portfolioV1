@@ -87,7 +87,7 @@ export default {
   height: 480px;
   width: 25%;
   border-radius: 15px;
-  border: solid 2px $primary-color;
+  border: solid 2px $hover-color;
   &__title {
     margin-top: 25px;
     font-size: $subtitle-font;
@@ -135,6 +135,7 @@ export default {
 }
 @include screen-mobileV {
   .qualifications {
+    height: 250vh;
     &__title {
       font-size: $title-font;
       margin-bottom: 7px;

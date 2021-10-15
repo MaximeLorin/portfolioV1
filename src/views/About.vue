@@ -12,7 +12,7 @@ import contactComp from "@/components/contactComp.vue";
 import footerComp from "@/components/footerComp.vue";
 
 export default {
-  name: "Home",
+  name: "Contact",
   components: {
     headerContactComp,
     contactComp,

@@ -1,5 +1,11 @@
 <template>
   <div class="contact">
+    <div class="mailSent" v-if="mailSent">
+      <p>Message envoyé !</p>
+      <p class="mailSent__return" @click="mailSent = false">
+        Renvoyer un message
+      </p>
+    </div>
     <form @submit.prevent="submit" @reset="onReset">
       <div class="toFill">
         <label>Votre nom:</label>
@@ -36,6 +42,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "App",
   data() {
@@ -44,15 +52,19 @@ export default {
       email: "",
       subject: "",
       message: "",
+      mailSent: false,
     };
   },
   computed: {
     formValid() {
-      const { name, email, message } = this;
+      const { name, email, subject, message } = this;
       return (
         name.length > 0 &&
+        name.length < 35 &&
         /(.+)@(.+){2,}.(.+){2,}/.test(email) &&
-        message.length > 0
+        subject.length > 0 &&
+        message.length > 0 &&
+        message.length < 3000
       );
     },
   },
@@ -60,23 +72,32 @@ export default {
     onReset() {
       this.name = "";
       this.email = "";
+      this.subject = "";
       this.message = "";
     },
-    submit() {
-      if (!this.formValid) {
-        return;
+    async submit() {
+      try {
+        if (!this.formValid) {
+          return;
+        }
+        const toSent = {
+          name: this.name,
+          email: this.email,
+          subject: this.subject,
+          message: this.message,
+        };
+
+        axios.post("https://maximelorin.com/mailapp/send", toSent, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log("Mail envoyé");
+        this.onReset();
+        this.mailSent = true;
+      } catch (error) {
+        console.log(error);
       }
-      if (!localStorage.getItem("messages")) {
-        localStorage.setItem("messages", JSON.stringify([]));
-      }
-      const messages = JSON.parse(localStorage.getItem("messages"));
-      const { name, email, message } = this;
-      messages.push({
-        name,
-        email,
-        message,
-      });
-      localStorage.setItem("messages", JSON.stringify(messages));
     },
   },
 };
@@ -88,13 +109,28 @@ export default {
 
 .contact {
   height: 73vh;
-
   background-color: $secondairy-color;
   color: $primary-color;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.mailSent {
+  position: absolute;
+  height: 73vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: $regular-font;
+  background-color: $secondairy-color;
+  &__return {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
 form {
@@ -184,5 +220,10 @@ button {
 }
 .options {
   color: $primary-color;
+}
+@include screen-mobileV {
+  .contact {
+    height: 143vh;
+  }
 }
 </style>
