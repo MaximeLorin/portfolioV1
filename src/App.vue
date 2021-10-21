@@ -7,7 +7,7 @@
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Jost");
-
+@import "./public/variables.scss";
 * {
   margin: 0;
   padding: 0;
@@ -71,7 +71,7 @@ input:focus {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #11717c;
+  background: $primary-color;
 }
 
 /* Handle on hover */

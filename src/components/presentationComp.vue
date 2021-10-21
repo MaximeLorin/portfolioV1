@@ -5,8 +5,9 @@
         src="../assets/enteteTemp2.png"
         alt="Photo Maxime Lorin"
         class="visualBox__imgs--1"
+        :class="{ animImage: isActive }"
+        @click="isActive = !isActive"
       />
-      <div class="visualBox__imgs"></div>
     </div>
     <div class="textBox">
       <h3 class="textBox__title">Maxime Lorin • Développeur Web</h3>
@@ -20,6 +21,9 @@
 <script>
 export default {
   name: "presentationComp",
+  data: function() {
+    return { isActive: false };
+  },
   props: {
     msg: String,
   },
@@ -83,7 +87,8 @@ export default {
 }
 .visualBox__imgs--1:hover {
   cursor: pointer;
-
+}
+.animImage {
   animation-name: blobbyBlob;
   animation-duration: 0.9s;
   animation-iteration-count: 1;
