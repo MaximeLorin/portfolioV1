@@ -67,10 +67,10 @@ export default {
 
 .qualifications {
   height: 100vh;
-  background-color: $secondairy-color;
+  background-color: $hover-color;
   padding-left: 15%;
   padding-right: 15%;
-  color: $primary-color;
+  color: $secondairy-color;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -85,9 +85,9 @@ export default {
 }
 .blockQualif {
   height: 480px;
-  width: 25%;
+  width: 20%;
   border-radius: 15px;
-  border: solid 2px $hover-color;
+  border: solid 2px $secondairy-color;
   &__title {
     margin-top: 25px;
     font-size: $subtitle-font;

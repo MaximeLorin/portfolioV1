@@ -4,8 +4,8 @@
     <navComp @openNav="navOpen = !navOpen" />
     <presentationComp />
     <whoAmIComp />
-    <qualificationsComp />
     <projectsComp />
+    <qualificationsComp />
     <footerComp />
   </div>
 </template>

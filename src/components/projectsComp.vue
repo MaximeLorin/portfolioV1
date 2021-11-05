@@ -7,6 +7,13 @@
         target="_blank"
         class="projectBox"
       >
+        <div class="projectBox__preview">
+          <img
+            class="projectBox__preview--img"
+            src="../assets/gifOhmyfood.gif"
+            alt="gif du site"
+          />
+        </div>
         <img
           src="../assets/ohMyFoodVignette.png"
           alt="Vignette OhMyFood"
@@ -23,6 +30,13 @@
         target="_blank"
         class="projectBox"
       >
+        <div class="projectBox__preview">
+          <img
+            class="projectBox__preview--img"
+            src="../assets/gifGroupomania.gif"
+            alt="gif du site"
+          />
+        </div>
         <img
           src="../assets/groupomaniaVignette.png"
           alt="Vignette groupomania"
@@ -35,6 +49,13 @@
         </div>
       </a>
       <a href="https://mcmicmax.itch.io/" target="_blank" class="projectBox">
+        <div class="projectBox__preview">
+          <img
+            class="projectBox__preview--img"
+            src="../assets/gifItchio.gif"
+            alt="gif du site"
+          />
+        </div>
         <img
           src="../assets/itchioVignette.png"
           alt="Vignette Itch.io"
@@ -76,7 +97,7 @@ export default {
 
 .projects {
   height: 100vh;
-  background-color: $hover-color;
+  background-color: $secondairy-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,7 +105,7 @@ export default {
   padding-right: 15%;
 }
 .projectsTitle {
-  color: $secondairy-color;
+  color: $hover-color;
   font-size: $title-font;
   margin-top: 10%;
   margin-bottom: 12%;
@@ -93,11 +114,12 @@ export default {
   display: flex;
   justify-content: space-around;
 }
+
 .projectBox {
   width: 30%;
   height: 100%;
   border-radius: 15px;
-  overflow: hidden;
+
   position: relative;
 
   &__img {
@@ -111,6 +133,25 @@ export default {
       transition: all 0.2s ease-in-out;
     }
   }
+  &__preview {
+    position: absolute;
+    opacity: 0;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: black;
+    &--img {
+      border-radius: 15px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+.projectBox:hover > .projectBox__preview {
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
 }
 .shadowBox {
   position: absolute;
@@ -120,7 +161,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  border-radius: 15px;
   background-color: transparent;
   color: transparent;
   &__txt {
@@ -129,7 +170,6 @@ export default {
   }
   &:hover {
     cursor: pointer;
-
     transition: all 0.2s ease-in-out;
     background-color: #72a1b4e5;
     color: $secondairy-color;
@@ -150,14 +190,14 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: $regular-font;
-  color: $secondairy-color;
-  border: solid 2px $secondairy-color;
+  color: $hover-color;
+  border: solid 2px $hover-color;
   &__icon {
     margin-right: 5px;
   }
   &:hover {
-    color: $primary-color;
-    background-color: $secondairy-color;
+    color: $secondairy-color;
+    background-color: $hover-color;
     transition: all 0.2s ease-in-out;
   }
 }
@@ -176,6 +216,19 @@ export default {
     &__img {
       width: 100%;
       height: 100%;
+    }
+    &__preview {
+      width: 100%;
+      top: -100%;
+      height: 100%;
+      border-radius: 15px;
+      background-color: black;
+      &--img {
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
   .shadowBox {
