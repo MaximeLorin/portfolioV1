@@ -3,71 +3,32 @@
     <h3 class="projectsTitle">Quelques projets</h3>
     <div class="projectsBox">
       <a
-        href="https://maximelorin.github.io/MaximeLorin_3_20022021/"
+        v-for="project in projects"
+        :key="project"
+        :href="project.link"
         target="_blank"
         class="projectBox"
       >
         <div class="projectBox__preview">
           <img
             class="projectBox__preview--img"
-            src="../assets/gifOhmyfood.gif"
-            alt="gif du site"
+            :src="project.preview"
+            :alt="project.altPreview"
           />
         </div>
         <img
-          src="../assets/ohMyFoodVignette.png"
-          alt="Vignette OhMyFood"
+          :src="project.image"
+          :alt="project.altVignette"
           class="projectBox__img"
         />
         <div class="shadowBox">
           <p class="shadowBox__txt">
-            Site créé en utilisant html et Sass pour s'entrainer aux animations
-          </p>
-        </div>
-      </a>
-      <a
-        href="https://groupomania.maximelorin.com/?#/login"
-        target="_blank"
-        class="projectBox"
-      >
-        <div class="projectBox__preview">
-          <img
-            class="projectBox__preview--img"
-            src="../assets/gifGroupomania.gif"
-            alt="gif du site"
-          />
-        </div>
-        <img
-          src="../assets/groupomaniaVignette.png"
-          alt="Vignette groupomania"
-          class="projectBox__img"
-        />
-        <div class="shadowBox">
-          <p class="shadowBox__txt">
-            Réseau social d'entreprise créé avec Vue.js et Express/MySql
-          </p>
-        </div>
-      </a>
-      <a href="https://mcmicmax.itch.io/" target="_blank" class="projectBox">
-        <div class="projectBox__preview">
-          <img
-            class="projectBox__preview--img"
-            src="../assets/gifItchio.gif"
-            alt="gif du site"
-          />
-        </div>
-        <img
-          src="../assets/itchioVignette.png"
-          alt="Vignette Itch.io"
-          class="projectBox__img"
-        />
-        <div class="shadowBox">
-          <p class="shadowBox__txt">
-            Quelques jeux créés en utilisant Unity 3D et C#
+            {{ project.text }}
           </p>
         </div>
       </a>
     </div>
+
     <div class="projectsButton">
       <a
         class="projectsGit"
@@ -87,6 +48,37 @@ export default {
   name: "projectsComp",
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      projects: [
+        {
+          link: "https://maximelorin.github.io/MaximeLorin_3_20022021/",
+          preview: require("../assets/gifOhmyfood.gif"),
+          altPreview: "gif de preview du site",
+          image: require("../assets/ohMyFoodVignette.png"),
+          altVignette: "vignette ohmyfood",
+          text:
+            "Site créé en utilisant html et Sass pour s'entrainer aux animations",
+        },
+        {
+          link: "https://groupomania.maximelorin.com/?#/login",
+          preview: require("../assets/gifGroupomania.gif"),
+          altPreview: "gif de preview du site",
+          image: require("../assets/groupomaniaVignette.png"),
+          alt: "vignette du site groupomania",
+          text: "Réseau social d'entreprise créé avec Vue.js et Express/MySql",
+        },
+        {
+          link: "https://mcmicmax.itch.io/",
+          preview: require("../assets/gifItchio.gif"),
+          altPreview: "gif de preview du site",
+          image: require("../assets/itchioVignette.png"),
+          alt: "vignette itchio",
+          text: "Quelques jeux créés en utilisant Unity 3D et C#",
+        },
+      ],
+    };
   },
 };
 </script>
