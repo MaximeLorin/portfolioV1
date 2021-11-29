@@ -1,8 +1,11 @@
 <template>
   <div class="projects" id="projects">
     <h3 class="projectsTitle">Quelques projets</h3>
-    <div class="projectsBox">
-      <a
+    <div
+      :options="{ align: 'prev', circular: true, horizontal: true }"
+      class="projectsBox"
+    >
+      <div
         v-for="project in projects"
         :key="project"
         :href="project.link"
@@ -26,7 +29,7 @@
             {{ project.text }}
           </p>
         </div>
-      </a>
+      </div>
     </div>
 
     <div class="projectsButton">
@@ -46,6 +49,7 @@
 <script>
 export default {
   name: "projectsComp",
+  components: {},
   props: {
     msg: String,
   },
@@ -77,6 +81,14 @@ export default {
           alt: "vignette itchio",
           text: "Quelques jeux créés en utilisant Unity 3D et C#",
         },
+        {
+          link: "https://camilleesnee.com/",
+          preview: require("../assets/gifSweetcreme.gif"),
+          altPreview: "gif de preview du site",
+          image: require("../assets/camilleEsneeVignette.png"),
+          alt: "Camille Esnée vignette",
+          text: "Site Wordpress & WooCommerce réactualisé",
+        },
       ],
     };
   },
@@ -104,6 +116,7 @@ export default {
 }
 .projectsBox {
   display: flex;
+  height: 200px;
   justify-content: space-around;
 }
 
@@ -111,7 +124,7 @@ export default {
   width: 30%;
   height: 100%;
   border-radius: 15px;
-
+  margin-right: 25px;
   position: relative;
 
   &__img {

@@ -13,5 +13,6 @@ library.add(fas);
 createApp(App)
   .use(store)
   .use(router)
+
   .component("font-awesome-icon", FontAwesomeIcon)
   .mount("#app");
