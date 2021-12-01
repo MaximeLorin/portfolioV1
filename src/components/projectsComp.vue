@@ -2,22 +2,20 @@
   <div class="projects" id="projects">
     <h3 class="projectsTitle">Quelques projets</h3>
     <div class="projectsBox">
+      <button class="projectsBox__button Bleft" @click="onClickLeft">
+        previous
+      </button>
+      <button class="projectsBox__button Bright" @click="onClickRight">
+        next
+      </button>
       <div
-        v-for="(project, index) in projects"
+        v-for="(project, index) in visibleSlides"
         :key="project"
         :index="index"
         :href="project.link"
-        :visibleSlide="visibleSlide"
-        v-show="visibleSlide === index"
         target="_blank"
         class="projectBox"
       >
-        <button class="projectsBox__button Bleft" @click="onClickLeft">
-          previous
-        </button>
-        <button class="projectsBox__button Bright" @click="onClickRight">
-          next
-        </button>
         <div class="projectBox__preview">
           <img
             class="projectBox__preview--img"
@@ -97,7 +95,7 @@ export default {
         },
       ],
       visibleSlide: 0,
-      visibleSlides: [3, 0, 1],
+      visibleSlides: [],
     };
   },
   methods: {
@@ -107,41 +105,64 @@ export default {
       let prevSlide = 0;
       let tempSlide = [];
 
-      prevSlide = this.visibleSlide;
+      prevSlide = this.projects[this.visibleSlide];
 
-      this.visibleSlide += 1;
-
-      tempSlide.push(prevSlide);
-      tempSlide.push(this.visibleSlide);
-      if (this.visibleSlide === slideLenght - 1) {
-        tempSlide.push(0);
+      if (this.visibleSlide > slideLenght - 1) {
         this.visibleSlide = 0;
       } else {
-        tempSlide.push(this.visibleSlide + 1);
+        this.visibleSlide += 1;
+      }
+      console.log(this.visibleSlide);
+      tempSlide.push(prevSlide);
+      tempSlide.push(this.projects[this.visibleSlide]);
+
+      if (this.visibleSlide === slideLenght - 1) {
+        tempSlide.push(this.projects[0]);
+        this.visibleSlide = 0;
+      } else {
+        tempSlide.push(this.projects[this.visibleSlide + 1]);
       }
 
       this.visibleSlides = tempSlide;
     },
     onClickLeft() {
       let slideLenght = this.projects.length;
+      let projectSlide = this.projects;
 
-      let prevSlide = 0;
       let tempSlide = [];
+      let firstSlide = this.visibleSlides[0];
+      let prevSlide = this.visibleSlide;
+      let lastSlide = parseInt(this.visibleSlides.slice(2));
 
-      prevSlide = this.visibleSlide;
-
-      tempSlide.push(prevSlide);
-      tempSlide.push(this.visibleSlide);
       if (this.visibleSlide === 0) {
-        tempSlide.push(slideLenght - 1);
         this.visibleSlide = slideLenght - 1;
       } else {
         this.visibleSlide -= 1;
-        tempSlide.push(this.visibleSlide - 1);
       }
 
+      if (firstSlide === projectSlide[0]) {
+        tempSlide.push(this.projects[slideLenght - 1]);
+      } else {
+        tempSlide.push(this.projects[firstSlide - 1]);
+      }
+
+      if (prevSlide === projectSlide[0]) {
+        tempSlide.push(this.projects[slideLenght - 1]);
+      } else {
+        tempSlide.push(this.projects[prevSlide - 1]);
+      }
+
+      if (lastSlide === projectSlide[0]) {
+        tempSlide.push(this.projects[slideLenght - 1]);
+      } else {
+        tempSlide.push(this.projects[lastSlide - 1]);
+      }
       this.visibleSlides = tempSlide;
     },
+  },
+  mounted() {
+    const startSlide = this.projects;
+    this.visibleSlides = [startSlide[3], startSlide[0], startSlide[1]];
   },
 };
 </script>
@@ -178,11 +199,11 @@ export default {
 }
 .Bright {
   position: absolute;
-  left: 50vh;
+  left: 80vw;
 }
 .Bleft {
   position: absolute;
-  right: 50vh;
+  right: 80vw;
 }
 
 .projectBox {
