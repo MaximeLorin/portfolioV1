@@ -3,16 +3,17 @@
     <h3 class="projectsTitle">Quelques projets</h3>
     <div class="projectsBox">
       <button class="projectsBox__button Bleft" @click="onClickLeft">
-        previous
+        <font-awesome-icon :icon="['fas', 'arrow-left']" />
       </button>
       <button class="projectsBox__button Bright" @click="onClickRight">
-        next
+        <font-awesome-icon :icon="['fas', 'arrow-right']" />
       </button>
       <div
         v-for="(project, index) in visibleSlides"
         :key="project"
         :index="index"
         :href="project.link"
+        :class="{ middleBox: index === 1 }"
         target="_blank"
         class="projectBox"
       >
@@ -99,69 +100,68 @@ export default {
     };
   },
   methods: {
+    calcNext(length, curr, arrOr, arr) {
+      curr === length - 1 ? arr.push(arrOr[0]) : arr.push(arrOr[curr + 1]);
+    },
+    calcPrev(length, curr, arrOr, arr) {
+      curr === 0 ? arr.push(arrOr[length - 1]) : arr.push(arrOr[curr - 1]);
+    },
     onClickRight() {
       let slideLenght = this.projects.length;
-
-      let prevSlide = 0;
+      let dataSlide = this.projects;
       let tempSlide = [];
+      let firstSlide = this.visibleSlides[2];
+      firstSlide = this.projects.indexOf(firstSlide);
 
-      prevSlide = this.projects[this.visibleSlide];
+      let prevSlide = this.visibleSlides[1];
+      prevSlide = this.projects.indexOf(prevSlide);
 
-      if (this.visibleSlide > slideLenght - 1) {
-        this.visibleSlide = 0;
-      } else {
-        this.visibleSlide += 1;
-      }
-      console.log(this.visibleSlide);
-      tempSlide.push(prevSlide);
-      tempSlide.push(this.projects[this.visibleSlide]);
+      let lastSlide = this.visibleSlides[0];
+      lastSlide = this.projects.indexOf(lastSlide);
 
-      if (this.visibleSlide === slideLenght - 1) {
-        tempSlide.push(this.projects[0]);
-        this.visibleSlide = 0;
-      } else {
-        tempSlide.push(this.projects[this.visibleSlide + 1]);
-      }
+      this.visibleSlide === slideLenght - 1
+        ? (this.visibleSlide = 0)
+        : (this.visibleSlide += 1);
+
+      this.calcNext(slideLenght, lastSlide, dataSlide, tempSlide);
+
+      this.calcNext(slideLenght, prevSlide, dataSlide, tempSlide);
+
+      this.calcNext(slideLenght, firstSlide, dataSlide, tempSlide);
 
       this.visibleSlides = tempSlide;
     },
     onClickLeft() {
       let slideLenght = this.projects.length;
-      let projectSlide = this.projects;
-
+      let dataSlide = this.projects;
       let tempSlide = [];
       let firstSlide = this.visibleSlides[0];
-      let prevSlide = this.visibleSlide;
-      let lastSlide = parseInt(this.visibleSlides.slice(2));
+      firstSlide = this.projects.indexOf(firstSlide);
+
+      let prevSlide = this.visibleSlides[1];
+      prevSlide = this.projects.indexOf(prevSlide);
+
+      let lastSlide = this.visibleSlides[2];
+      lastSlide = this.projects.indexOf(lastSlide);
+      console.log(lastSlide);
 
       if (this.visibleSlide === 0) {
         this.visibleSlide = slideLenght - 1;
       } else {
         this.visibleSlide -= 1;
       }
+      this.calcPrev(slideLenght, firstSlide, dataSlide, tempSlide);
 
-      if (firstSlide === projectSlide[0]) {
-        tempSlide.push(this.projects[slideLenght - 1]);
-      } else {
-        tempSlide.push(this.projects[firstSlide - 1]);
-      }
+      this.calcPrev(slideLenght, prevSlide, dataSlide, tempSlide);
 
-      if (prevSlide === projectSlide[0]) {
-        tempSlide.push(this.projects[slideLenght - 1]);
-      } else {
-        tempSlide.push(this.projects[prevSlide - 1]);
-      }
+      this.calcPrev(slideLenght, lastSlide, dataSlide, tempSlide);
 
-      if (lastSlide === projectSlide[0]) {
-        tempSlide.push(this.projects[slideLenght - 1]);
-      } else {
-        tempSlide.push(this.projects[lastSlide - 1]);
-      }
       this.visibleSlides = tempSlide;
     },
   },
   mounted() {
     const startSlide = this.projects;
+    this.visibleSlide = 0;
     this.visibleSlides = [startSlide[3], startSlide[0], startSlide[1]];
   },
 };
@@ -177,6 +177,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding-left: 15%;
   padding-right: 15%;
 }
@@ -189,30 +190,40 @@ export default {
 .projectsBox {
   display: flex;
   height: 200px;
+  width: 750px;
+  align-items: center;
   justify-content: space-around;
+  position: relative;
   &__button {
-    width: 100px;
+    width: 50px;
     height: 50px;
-
-    background-color: brown;
+    font-size: 1.5rem;
+    color: $hover-color;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      color: $primary-color;
+      transition: all 0.2s ease-in-out;
+    }
   }
 }
 .Bright {
   position: absolute;
-  left: 80vw;
+  left: 750px;
 }
 .Bleft {
   position: absolute;
-  right: 80vw;
+  right: 750px;
 }
 
 .projectBox {
-  width: 30%;
-  height: 100%;
+  width: 220px;
+  height: 150px;
   border-radius: 15px;
-  margin-right: 25px;
+  margin-right: 12px;
+  margin-left: 12px;
   position: relative;
-
+  opacity: 0.6;
   &__img {
     width: 100%;
     height: 100%;
@@ -241,6 +252,12 @@ export default {
   }
 }
 .projectBox:hover > .projectBox__preview {
+  transition: all 0.3s ease-in-out;
+
+  opacity: 1;
+}
+.middleBox {
+  transform: scale(1.15) translateY(20px);
   transition: all 0.3s ease-in-out;
   opacity: 1;
 }
