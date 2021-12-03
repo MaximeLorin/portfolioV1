@@ -3,17 +3,22 @@
     <h3 class="projectsTitle">Quelques projets</h3>
     <div class="projectsBox">
       <button class="projectsBox__button Bleft" @click="onClickLeft">
-        <font-awesome-icon :icon="['fas', 'arrow-left']" />
+        <font-awesome-icon :icon="['fas', 'chevron-left']" />
       </button>
       <button class="projectsBox__button Bright" @click="onClickRight">
-        <font-awesome-icon :icon="['fas', 'arrow-right']" />
+        <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </button>
-      <div
+      <a
         v-for="(project, index) in visibleSlides"
         :key="project"
         :index="index"
         :href="project.link"
-        :class="{ middleBox: index === 1 }"
+        :class="{
+          middleBox: index === 1,
+          sideBoxR: index > 1,
+          sideBoxL: index < 1,
+          sideBox: index != 1,
+        }"
         target="_blank"
         class="projectBox"
       >
@@ -34,7 +39,7 @@
             {{ project.text }}
           </p>
         </div>
-      </div>
+      </a>
     </div>
 
     <div class="projectsButton">
@@ -190,18 +195,22 @@ export default {
 .projectsBox {
   display: flex;
   height: 200px;
-  width: 750px;
+  width: 790px;
   align-items: center;
   justify-content: space-around;
   position: relative;
   &__button {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+    width: 270px;
+    height: 200px;
+    // background-color: brown;
+    font-size: 1.8rem;
     color: $hover-color;
+    display: flex;
+    align-items: center;
+    z-index: 10;
     &:hover {
       cursor: pointer;
-      transform: scale(1.1);
+      transform: scale(1.05);
       color: $primary-color;
       transition: all 0.2s ease-in-out;
     }
@@ -209,16 +218,17 @@ export default {
 }
 .Bright {
   position: absolute;
-  left: 750px;
+  justify-content: flex-end;
+  left: 540px;
 }
 .Bleft {
   position: absolute;
-  right: 750px;
+  right: 540px;
 }
 
 .projectBox {
-  width: 220px;
-  height: 150px;
+  width: 240px;
+  height: 180px;
   border-radius: 15px;
   margin-right: 12px;
   margin-left: 12px;
@@ -251,6 +261,14 @@ export default {
     }
   }
 }
+// .sideBoxR {
+//   transform: translateY(-15px);
+//   transition: all 0.2s ease-in-out;
+// }
+// .sideBoxL {
+//   transform: translateY(-15px);
+//   transition: all 0.2s ease-in-out;
+// }
 .projectBox:hover > .projectBox__preview {
   transition: all 0.3s ease-in-out;
 
@@ -313,13 +331,18 @@ export default {
   .projectsBox {
     display: flex;
     height: 65%;
-    flex-direction: column;
+    width: 300%;
     align-items: center;
     justify-content: space-around;
+    &__button {
+      width: 40px;
+      height: 80%;
+      // background-color: brown;
+    }
   }
   .projectBox {
-    width: 85%;
-    height: 30%;
+    width: 100%;
+    height: 50%;
 
     &__img {
       width: 100%;
@@ -338,6 +361,18 @@ export default {
         object-fit: cover;
       }
     }
+  }
+  .Bright {
+    left: 141vw;
+    padding-right: 10px;
+  }
+  .Bleft {
+    right: 141vw;
+    padding-left: 10px;
+  }
+  .sideBox {
+    transform: scale(0.9);
+    opacity: 0.3;
   }
   .shadowBox {
     width: 100%;
