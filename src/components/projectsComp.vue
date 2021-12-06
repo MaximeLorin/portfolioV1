@@ -1,11 +1,20 @@
 <template>
   <div class="projects" id="projects">
     <h3 class="projectsTitle">Quelques projets</h3>
+
     <div class="projectsBox">
-      <button class="projectsBox__button Bleft" @click="onClickLeft">
+      <button
+        class="projectsBox__button Bleft"
+        @click="onClickLeft"
+        aria-label="boutton gauche"
+      >
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
       </button>
-      <button class="projectsBox__button Bright" @click="onClickRight">
+      <button
+        class="projectsBox__button Bright"
+        @click="onClickRight"
+        aria-label="boutton droit"
+      >
         <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </button>
       <a
@@ -20,6 +29,7 @@
           sideBox: index != 1,
         }"
         target="_blank"
+        v-touch:swipe="touchHandler"
         class="projectBox"
       >
         <div class="projectBox__preview">
@@ -80,7 +90,7 @@ export default {
           preview: require("../assets/gifGroupomania.gif"),
           altPreview: "gif de preview du site",
           image: require("../assets/groupomaniaVignette.png"),
-          alt: "vignette du site groupomania",
+          altVignette: "vignette du site groupomania",
           text: "Réseau social d'entreprise créé avec Vue.js et Express/MySql",
         },
         {
@@ -88,7 +98,7 @@ export default {
           preview: require("../assets/gifItchio.gif"),
           altPreview: "gif de preview du site",
           image: require("../assets/itchioVignette.png"),
-          alt: "vignette itchio",
+          altVignette: "vignette itchio",
           text: "Quelques jeux créés en utilisant Unity 3D et C#",
         },
         {
@@ -96,7 +106,7 @@ export default {
           preview: require("../assets/gifSweetcreme.gif"),
           altPreview: "gif de preview du site",
           image: require("../assets/camilleEsneeVignette.png"),
-          alt: "Camille Esnée vignette",
+          altVignette: "Camille Esnée vignette",
           text: "Site Wordpress & WooCommerce réactualisé",
         },
       ],
@@ -163,6 +173,14 @@ export default {
 
       this.visibleSlides = tempSlide;
     },
+    touchHandler(direction) {
+      if (direction === "left") {
+        this.onClickLeft();
+      }
+      if (direction === "right") {
+        this.onClickRight();
+      }
+    },
   },
   mounted() {
     const startSlide = this.projects;
@@ -186,6 +204,7 @@ export default {
   padding-left: 15%;
   padding-right: 15%;
 }
+
 .projectsTitle {
   color: $hover-color;
   font-size: $title-font;
@@ -331,8 +350,9 @@ export default {
   .projectsBox {
     display: flex;
     height: 65%;
-    width: 300%;
+    width: 95%;
     align-items: center;
+
     justify-content: space-around;
     &__button {
       width: 40px;
@@ -341,7 +361,7 @@ export default {
     }
   }
   .projectBox {
-    width: 100%;
+    width: 80%;
     height: 50%;
 
     &__img {
@@ -363,16 +383,16 @@ export default {
     }
   }
   .Bright {
-    left: 141vw;
+    left: 67vw;
     padding-right: 10px;
   }
   .Bleft {
-    right: 141vw;
+    right: 69vw;
     padding-left: 10px;
   }
   .sideBox {
-    transform: scale(0.9);
-    opacity: 0.3;
+    display: none;
+    transition: all 0.1s ease-in-out;
   }
   .shadowBox {
     width: 100%;

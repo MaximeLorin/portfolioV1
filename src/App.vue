@@ -41,6 +41,7 @@ input:focus {
 
 #app {
   font-family: "Jost", Avenir, Helvetica, Arial, sans-serif;
+  font-display: swap;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

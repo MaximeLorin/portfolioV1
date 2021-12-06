@@ -4,18 +4,25 @@
       <a
         href="https://www.linkedin.com/in/maxime-lorin-950b771bb/"
         class="footerIcons__linkedin"
+        aria-label="lien vers linkedin"
         ><font-awesome-icon
           :icon="['fab', 'linkedin-in']"
           class="projectsGit__icon"
           aria-label="lien vers linkedin"
       /></a>
-      <a href="https://github.com/MaximeLorin" class="footerIcons__github"
+      <a
+        href="https://github.com/MaximeLorin"
+        class="footerIcons__github"
+        aria-label="lien vers github"
         ><font-awesome-icon
           :icon="['fab', 'github']"
           class="projectsGit__icon"
           aria-label="lien vers github"
       /></a>
-      <a href="https://mcmicmax.itch.io/" class="footerIcons__itchio"
+      <a
+        href="https://mcmicmax.itch.io/"
+        class="footerIcons__itchio"
+        aria-label="lien vers itch.io"
         ><font-awesome-icon
           :icon="['fab', 'itch-io']"
           class="projectsGit__icon"
