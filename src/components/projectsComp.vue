@@ -195,21 +195,20 @@ export default {
 @import "./public/variables.scss";
 
 .projects {
-  height: 100vh;
+  min-height: 100vh;
   background-color: $secondairy-color;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding-left: 15%;
   padding-right: 15%;
 }
 
 .projectsTitle {
+  margin-top: 25px;
   color: $hover-color;
   font-size: $title-font;
-  margin-top: 10%;
-  margin-bottom: 12%;
 }
 .projectsBox {
   display: flex;
@@ -280,14 +279,7 @@ export default {
     }
   }
 }
-// .sideBoxR {
-//   transform: translateY(-15px);
-//   transition: all 0.2s ease-in-out;
-// }
-// .sideBoxL {
-//   transform: translateY(-15px);
-//   transition: all 0.2s ease-in-out;
-// }
+
 .projectBox:hover > .projectBox__preview {
   transition: all 0.3s ease-in-out;
 
@@ -323,6 +315,7 @@ export default {
 .projectsButton {
   width: 100%;
   height: 30%;
+  margin-bottom: 25px;
   align-items: center;
   display: flex;
   justify-content: center;
@@ -349,8 +342,8 @@ export default {
 @include screen-mobile {
   .projectsBox {
     display: flex;
-    height: 65%;
-    width: 95%;
+    height: 300px;
+    width: 100%;
     align-items: center;
 
     justify-content: space-around;
@@ -361,23 +354,23 @@ export default {
     }
   }
   .projectBox {
-    width: 80%;
-    height: 50%;
+    width: 240px;
+    height: 200px;
 
     &__img {
-      width: 100%;
-      height: 100%;
+      width: inherit;
+      height: inherit;
     }
     &__preview {
-      width: 100%;
+      width: inherit;
       top: -100%;
-      height: 100%;
+      height: inherit;
       border-radius: 15px;
       background-color: black;
       &--img {
         border-radius: 15px;
-        width: 100%;
-        height: 100%;
+        width: inherit;
+        height: inherit;
         object-fit: cover;
       }
     }
@@ -403,27 +396,27 @@ export default {
     }
   }
 }
-@include screen-mobileV {
-  .projects {
-    height: 200vh;
-    background-color: $primary-color;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 15%;
-    padding-right: 15%;
-  }
-  .projectsTitle {
-    margin-top: 8vh;
-    margin-bottom: 2%;
-  }
-  .projectBox {
-    height: 100%;
+// @include screen-mobileV {
+//   .projects {
+//     height: 200vh;
+//     background-color: $secondairy-color;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     padding-left: 15%;
+//     padding-right: 15%;
+//   }
+//   .projectsTitle {
+//     margin-top: 8vh;
+//     margin-bottom: 2%;
+//   }
+//   .projectBox {
+//     height: 100%;
 
-    &__img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
+//     &__img {
+//       width: 100%;
+//       height: 100%;
+//     }
+//   }
+// }
 </style>
